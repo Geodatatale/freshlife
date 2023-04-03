@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="author" content="Geoffrey Asira">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <title>freshlifetoilets</title>
+        <link rel="stylesheet" href="src/leaflet.css">
+        <link rel="stylesheet" href="src/css/bootstrap.css">
+        <link rel="stylesheet" href="src/plugins/L.Control.MousePosition.css">
+        <link rel="stylesheet" href="src/plugins/L.Control.Sidebar.css">
+        <link rel="stylesheet" href="src/plugins/Leaflet.PolylineMeasure.css">
+        <link rel="stylesheet" href="src/plugins/easy-button.css">
+        <link rel="stylesheet" href="src/css/popupstyle.css">
+        <link rel="stylesheet" href="src/plugins/leaflet-styleeditor/css/Leaflet.StyleEditor.css">
+        <link rel="stylesheet" href="src/css/font-awesome.min.css">
+        <link rel="stylesheet" href="src/plugins/leaflet.awesome-markers.css">
+        <link rel="stylesheet" href="src/plugins/leaflet-mapkey/MapkeyIcons.css">
+        <link rel="stylesheet" href="src/plugins/leaflet-mapkey/L.Icon.Mapkey.css">
+        <link rel="stylesheet" href="src/plugins/MarkerCluster.css">
+        <link rel="stylesheet" href="src/plugins/MarkerCluster.Default.css">
+        <link rel="stylesheet" href="src/plugins/leaflet-legend.css">
+        <link rel="stylesheet" href="src/jquery-ui.min.css">
+        <link rel="stylesheet" href="src/plugins/leaflet.reachability.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/trafforddatalab/leaflet.reachability@v2.0.1/leaflet.reachability.min.css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+        <link rel="stylesheet" href="src/css/head.css">
+        <link rel="stylesheet" href="src/Leaflet.BigImage.min.css">
+        <link rel="stylesheet" href="src/plugins/leaflet.groupedlayercontrol.min.css">
+        <link rel="stylesheet" href="src/css/styles.css">
+        <link rel="stylesheet" href="src/css/dashstyle.css">
+        <script src="src/leaflet-src.js"></script>
+        <script src="src/jquery-3.2.0.min.js"></script>
+        <script src="src/plugins/L.Control.MousePosition.js"></script>
+        <script src="src/plugins/L.Control.Sidebar.js"></script>
+        <script src="src/plugins/Leaflet.PolylineMeasure.js"></script>
+        <script src="src/plugins/easy-button.js"></script>
+        <script src="src/plugins/leaflet-providers.js"></script>
+        <script src="src/plugins/leaflet-styleeditor/javascript/Leaflet.StyleEditor.js"></script>
+        <script src="src/plugins/leaflet-styleeditor/javascript/Leaflet.StyleForms.js"></script>
+        <script src="src/plugins/leaflet.ajax.min.js"></script>
+        <script src="src/plugins/leaflet.sprite.js"></script>
+        <script src="src/plugins/leaflet.awesome-markers.min.js"></script>
+        <script src="src/plugins/leaflet-mapkey/L.Icon.Mapkey.js"></script>
+        <script src="src/plugins/leaflet.markercluster.js"></script>
+        <script src="src/plugins/leaflet.geometryutil.js"></script>
+        <script src="src/plugins/leaflet-legend.js"></script>
+        <script src="src/jquery-ui.min.js"></script>
+        <script src="src/turf.min.js"></script>
+        <script src="src/plugins/leaflet.reachability.js"></script>
+        <script src="src/plugins/leaflet.facebook.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/trafforddatalab/leaflet.reachability@v2.0.1/leaflet.reachability.min.js"></script>
+        <script src="src/Leaflet.BigImage.min.js"></script>
+        <script src="src/leaflet.browser.print.min.js"></script>
+        <script src="src/plugins/leaflet.groupedlayercontrol.min.js"></script>
+        <link rel="shortcut icon" href="img/logo/circle logo.png">
+
+	<link href="assets/bootstrap-4.5.0-dist/css/bootstrap.min.css" rel="stylesheet">
+	<link href="assets/bootstrap-4.5.0-dist/css/bootstrap.css" rel="stylesheet">
+	<link href="css/custom.css" rel="stylesheet" media="screen">
+	<link href="assets/font awesome/css/fontawesome.css" rel="stylesheet" media="screen">
+        
+        
+<!--    ***************  Begin Leaflet.Draw-->
+    
+        <script src="src/plugins/leaflet-draw/Leaflet.draw.js"></script>
+        <script src="src/plugins/leaflet-draw/Leaflet.Draw.Event.js"></script>
+        <link rel="stylesheet" href="src/plugins/leaflet-draw/leaflet.draw.css"/>
+        <script src="src/plugins/leaflet-draw/Toolbar.js"></script>
+        <script src="src/plugins/leaflet-draw/Tooltip.js"></script>
+        <script src="src/plugins/leaflet-draw/ext/GeometryUtil.js"></script>
+        <script src="src/plugins/leaflet-draw/ext/LatLngUtil.js"></script>
+        <script src="src/plugins/leaflet-draw/ext/LineUtil.Intersect.js"></script>
+        <script src="src/plugins/leaflet-draw/ext/Polygon.Intersect.js"></script>
+        <script src="src/plugins/leaflet-draw/ext/Polyline.Intersect.js"></script>
+        <script src="src/plugins/leaflet-draw/ext/TouchEvents.js"></script>
+        <script src="src/plugins/leaflet-draw/draw/DrawToolbar.js"></script>
+        <script src="src/plugins/leaflet-draw/draw/handler/Draw.Feature.js"></script>
+        <script src="src/plugins/leaflet-draw/draw/handler/Draw.SimpleShape.js"></script>
+        <script src="src/plugins/leaflet-draw/draw/handler/Draw.Polyline.js"></script>
+        <script src="src/plugins/leaflet-draw/draw/handler/Draw.Circle.js"></script>
+        <script src="src/plugins/leaflet-draw/draw/handler/Draw.Marker.js"></script>
+        <script src="src/plugins/leaflet-draw/draw/handler/Draw.Polygon.js"></script>
+        <script src="src/plugins/leaflet-draw/draw/handler/Draw.Rectangle.js"></script>
+        <script src="src/plugins/leaflet-draw/edit/EditToolbar.js"></script>
+        <script src="src/plugins/leaflet-draw/edit/handler/EditToolbar.Edit.js"></script>
+        <script src="src/plugins/leaflet-draw/edit/handler/EditToolbar.Delete.js"></script>
+        <script src="src/plugins/leaflet-draw/Control.Draw.js"></script>
+        <script src="src/plugins/leaflet-draw/edit/handler/Edit.Poly.js"></script>
+        <script src="src/plugins/leaflet-draw/edit/handler/Edit.SimpleShape.js"></script>
+        <script src="src/plugins/leaflet-draw/edit/handler/Edit.Circle.js"></script>
+        <script src="src/plugins/leaflet-draw/edit/handler/Edit.Rectangle.js"></script>
+        <script src="src/plugins/leaflet-draw/edit/handler/Edit.Marker.js"></script>
+        <script src="src/plugins/leaflet-search.js"></script>
+         
+        
+<!--    **************  End of Lealet Draw-->
+
+    </head>
+    <body>
+        <nav class="navbar fixed-top navbar-expand-md" id="navheader" >
+  <div class="container-fluid" id="logoh">
+    <a class="navbar-brand" href="index.html"><img class="logo" src="img/freshlogo4.png" width="100%" height="70" alt=""></a>
+
+    <div class="collapse navbar-collapse justify-content-md-center" id="navbarNav">
+
+          <div  class="col-md-12 ">
+            <h3 class="text-center" ><span style="padding: inherit;font-size: 23pt;
+              font-weight: 900;text-align: center;color: white;">FRESH LIFE TOILETS, WASTE CONSOLIDATION & COLLECTION CENTRES  </h3>
+           </div>
+                
+    </div>
+  </div>
+</nav>
+       <section id="me">
+        <div id="side-bar" class="col-md-11">
+         
+        </div>
+        <div id="mapdiv" class="col-md-12"></div>
+        <script>
+            var mymap;
+            var lyrOSM;
+            var lyrWatercolor;
+            var lyrTopo;
+            var lyrImagery;
+            var lyrOutdoors;
+            var lyrEagleNests;
+            var lyrbilboards
+            var lyrClientLines;
+            var lyrClientLinesBuffer;
+            var parcels;
+            var lyrBUOWLbuffer;
+            var jsnBUOWLbuffer;
+            var lyrGBH;
+            var lyrSearch;
+            var lyrMarkerCluster;
+            var mrkCurrentLocation;
+            var fgpDrawnItems;
+            var ctlAttribute;
+            var ctlScale;
+            var ctlMouseposition;
+            var ctlMeasure;
+            var ctlEasybutton;
+            var ctlSidebar;
+            var ctlLayers;
+            var ctlDraw;
+            var ctlStyle;
+            var ctlLegend;
+            var ctlPrint;
+            var ctlPrint2;
+            var ctlGroupLayer;
+            var objBasemaps;
+            var reachabilityControl;
+            var objOverlays;
+            var arProjectIDs = [];
+            var arHabitatIDs = [];
+            var arEagleIDs = [];
+            var arBillboardIDs = [];
+            var arRaptorIDs = [];
+            var facebookcontrol;
+            var myIcon;
+            var billboardiconunder;
+            var bilboardicon;
+            var bilboardiconva;
+            var layergroup;
+            
+            $(document).ready(function(){
+                
+                //  ********* Map Initialization ****************
+                
+                mymap = L.map('mapdiv', {center:[-1.31398,36.7872], zoom:14.2,  attributionControl:false});
+                
+                
+                
+                ctlAttribute = L.control.attribution().addTo(mymap);
+                ctlAttribute.addAttribution('OSM');
+                ctlAttribute.addAttribution('&copy; <a href="http://datatale.com">Geoffrey asira LLC</a>');
+                
+                ctlScale = L.control.scale({position:'bottomleft', metric:false, maxWidth:200}).addTo(mymap);
+                reachabilityControl = L.control.reachability({
+                apiKey: '5b3ce3597851110001cf6248c9f85cae50384963b985be5b9d179444',
+                styleFn: styleIsolines,
+                mouseOverFn: highlightIsolines,
+                mouseOutFn: resetIsolines,
+                clickFn: clickIsolines,
+                markerFn: isolinesOrigin,
+                expandButtonContent: '',
+                expandButtonStyleClass: 'reachability-control-expand-button fa fa-bullseye',
+                collapseButtonContent: '',
+                collapseButtonStyleClass: 'reachability-control-collapse-button fa fa-caret-up',
+                drawButtonContent: '',
+                drawButtonStyleClass: 'fa fa-pencil',
+                deleteButtonContent: '',
+                deleteButtonStyleClass: 'fa fa-trash',
+                distanceButtonContent: '',
+                distanceButtonStyleClass: 'fa fa-road',
+                timeButtonContent: '',
+                timeButtonStyleClass: 'fa fa-clock-o',
+                travelModeButton1Content: '',
+                travelModeButton1StyleClass: 'fa fa-car',
+                travelModeButton2Content: '',
+                travelModeButton2StyleClass: 'fa fa-bicycle',
+                travelModeButton3Content: '',
+                travelModeButton3StyleClass: 'fa fa-male',
+                travelModeButton4Content: '',
+                travelModeButton4StyleClass: 'fa fa-wheelchair-alt'
+                }).addTo(mymap);
+                      // *********  reachability plug in function *****************
+            function styleIsolines(feature) {
+                // NOTE: You can do some conditional styling by reading the properties of the feature parameter passed to the function
+                return {
+                    color: '#FFFF00',
+                    weight: 5,
+                    opacity: 0.5,
+                    fillOpacity: 0.3,
+                    fillColor:'rgba(255, 0, 0, 0.1)',
+                    dashArray: '5,10'
+                    
+                };
+            }
+
+            // Example function to style the isoline polygons when the user hovers over them
+            function highlightIsolines(e) {
+                // NOTE: as shown in the examples on the Leaflet website, e.target = the layer the user is interacting with
+                var layer = e.target;
+
+                layer.setStyle({
+                    fillColor: 'rgb(192,192,192,0.2)',
+                    dashArray: '1,13',
+                    weight: 6,
+                    fillOpacity: '0.5',
+                    opacity: '2'
+                });
+            }
+
+            // Example function to reset the style of the isoline polygons when the user stops hovering over them
+            function resetIsolines(e) {
+                // NOTE: as shown in the examples on the Leaflet website, e.target = the layer the user is interacting with
+                var layer = e.target;
+
+                reachabilityControl.isolinesGroup.resetStyle(layer);
+            }
+
+            // Example function to display information about an isoline in a popup when the user clicks on it
+            function clickIsolines(e) {
+                // NOTE: as shown in the examples on the Leaflet website, e.target = the layer the user is interacting with
+                var layer = e.target;
+                var props = layer.feature.properties;
+                var popupContent = 'Mode of travel: ' + props['Travel mode'] + '<br />Range: 0 - ' + props['Range'] + ' ' + props['Range units'] + '<br />Area: ' + props['Area'] + ' ' + props['Area units'] + '<br />Population: ' + props['Population'];
+                if (props.hasOwnProperty('Reach factor')) popupContent += '<br />Reach factor: ' + props['Reach factor'];
+                layer.bindPopup(popupContent).openPopup();
+            }
+
+            // Example function to create a custom marker at the origin of the isoline groups
+            function isolinesOrigin(latLng, travelMode, rangeType) {
+                return L.circleMarker(latLng, { radius: 4, weight: 2, color: '#0073d4', fillColor: '#fff', fillOpacity: 1 });
+            }
+              // Add the reachability plugin
+           
+            // Setup error handlers in case there is a problem when calling the API
+            mymap.on('reachability:error', function () {
+                alert('Unfortunately there has been an error calling the API.\nMore details are available in the console.');
+            });
+
+            mymap.on('reachability:no_data', function () {
+                alert('Unfortunately no data was received from the API.\n');
+            });
+                ctlMouseposition = L.control.mousePosition().addTo(mymap);
+                ctlMeasure = L.control.polylineMeasure().addTo(mymap);
+             
+
+                    
+                //   *********** Layer Initialization **********
+                var Jawg_Dark = L.tileLayer('https://{s}.tile.jawg.io/jawg-dark/{z}/{x}/{y}{r}.png?access-token={accessToken}', {
+                attribution: '<a href="http://jawg.io" title="Tiles Courtesy of Jawg Maps" target="_blank">&copy;  contributors',
+                minZoom: 0,
+                maxZoom: 22,
+                subdomains: 'abcd',
+                accessToken: ' 0s5dBwPnRsDDF47Yw5nmW6OD5dsdOfn3t7Z9jKUaGqafPXPcvoAqTOuORA14yVWa'
+            });
+                var Stadia_AlidadeSmoothDark = L.tileLayer('http://services.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}'
+                  );
+                var light = L.tileLayer('http://a.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}')
+                var Jawg_Matrix = L.tileLayer('https://{s}.tile.jawg.io/jawg-matrix/{z}/{x}/{y}{r}.png?access-token={accessToken}', {
+                attribution: '<a href="http://jawg.io" title="Tiles Courtesy of Jawg Maps" target="_blank">&copy; <b>Jawg</b>Maps</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+                minZoom: 0,
+                maxZoom: 22,
+                subdomains: 'abcd',
+                accessToken: ' 0s5dBwPnRsDDF47Yw5nmW6OD5dsdOfn3t7Z9jKUaGqafPXPcvoAqTOuORA14yVWa '
+            });
+                var basemapCartoNoLabels = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png', {
+                attribution: '&copy;OpenStreetMap, &copy;CartoDB'
+            });
+                var layer_GoogleHybrid_0 = L.tileLayer('https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}');
+            
+            
+                lyrOSM = L.tileLayer.provider('OpenStreetMap.Mapnik');
+                lyrTopo = L.tileLayer.provider('Thunderforest.Outdoors');
+                lyrImagery = L.tileLayer.provider('Esri.WorldImagery');
+        
+                
+               mymap.addLayer(Stadia_AlidadeSmoothDark);
+              function styleprop(feature) {
+                        return {
+                            fillColor: 'orange',
+                            weight: 2,
+                            opacity: 1,
+                            color: 'orange',
+                            fillOpacity: 0.5
+                        };
+                    }
+               function style(feature) {
+                        return {
+                            fillColor: 'white',
+                            weight: 2,
+                            opacity: 2,
+                            color: '#80FF00',
+                            fillOpacity: 0
+                        };
+                    }
+                var prop =L.geoJSON.ajax('data/prop2.geojson',{style: styleprop}).addTo(mymap); 
+                L.geoJSON.ajax('data/parcelf.geojson',{style: style,onEachFeature:onLayerhighrise}).addTo(mymap); 
+               var kibra = L.geoJSON.ajax('data/kibra.geojson',{style: style,onEachFeature:onLayerkibra}).addTo(mymap);
+                function onLayerkibra(feature, layer) {
+                    layer.bindPopup(feature.properties.label)
+                }
+                function onLayerhighrise(feature, layer) {
+                    layer.bindPopup(feature.properties.label)
+                }
+               var highrise =L.geoJSON.ajax('data/highrise.geojson',{style: style,onEachFeature:onLayerhighrise}).addTo(mymap);
+               var geojsonLabel = {
+            radius: 0,
+                };
+                
+                var label =new L.GeoJSON.AJAX('data/labelza.geojson', {
+                pointToLayer: function (feature, latlng) {
+                    return L.circleMarker(latlng, geojsonLabel).bindTooltip(feature.properties.label, {permanent: true, 
+                    direction: "center",
+                    className: "my-labels"}).openTooltip();
+                    }
+                }); 
+               mymap.on('zoomend',function(){
+                if (mymap.getZoom() < 15.1){
+                    mymap.removeLayer(label);
+                }
+                 else{
+                    mymap.addLayer(label);
+                 }
+             });
+                   /* toilet data */
+                myIconatm = L.icon({
+                iconUrl:'markers/toiletm.png',
+                iconSize: [22, 25],
+                iconAnchor: [10, 12],
+                popupAnchor: [0, -28]
+                });
+                lyrbustop = L.geoJSON.ajax('data/toiletdataf.geojson',{pointToLayer:returnbustopmarker}).addTo(mymap);
+                
+                // ********* bustop Functions *****************
+            function returnbustopmarker(json, latlng){
+                var att = json.properties;
+                return L.marker(latlng, {icon: myIconatm}).bindTooltip("<b> "+"Region :&nbsp;&nbsp;"+"</b>"+att.Region+"<br>"+"<b> "+"Area :&nbsp;&nbsp;"+"</b>"+att.area_loc+"<br>"+"<b> "+"Toilet Name : &nbsp;&nbsp;"+"</b>"+att.Toilet_name+"<br>"+"<b> "+"Location :&nbsp;&nbsp;"+"</b>"+"("+att.Latitude+","+att.Longitude+")"+"<br>");
+            }
+                
+                
+               
+                fgpDrawnItems = new L.FeatureGroup();
+                fgpDrawnItems.addTo(mymap);
+          
+                 
+                
+                
+               
+                // ********* Setup Layer Control  ***************
+                
+                objBasemaps = {
+                    "imagery": lyrImagery,
+                    "Imagery with<br>labels ":layer_GoogleHybrid_0,
+                    "Open Street Maps": lyrOSM,
+                   
+                };
+            
+                var  groupedOverlays = {
+                     
+                    "Bounadry":{
+                    "Kibra Sub_county":kibra,
+                    "Mugumoini_Highrise": highrise,
+                    "Proposed areas ": prop,
+                    },          
+                };
+                var options = {
+                 // Make the "Landmarks" group exclusive (use radio inputs)
+                exclusiveGroups: ["Real estate Properties"],
+                 // Show a checkbox next to non-exclusive group labels for toggling all
+                groupCheckboxes: false,
+                collapsed: false,
+                };
+                ctlGroupLayer = L.control.groupedLayers(objBasemaps, groupedOverlays,options  );
+                mymap.addControl(ctlGroupLayer);
+                
+                 //***** search control ***   
+              mymap.addControl(L.control.search({position:'topleft'}));
+                //** legend **
+                
+                let legend = L.control({position: "topright"});
+                legend.onAdd = function() {
+                let div = L.DomUtil.create("div", "legend");
+                    div.innerHTML =
+                '<b>Legend<br /></b><table><tr><td style="text-align: center;"><img src="legend/leg3.png" id="san" /> </td><td>&nbsp;&nbsp; Fresh life Toilets</td></tr><tr><td style="text-align: center;"><img src="legend/available1.png" id="san" /> </td><td>&nbsp;&nbsp; Boundary</td><tr><td style="text-align: center;"><img src="legend/leg2.png" id="san" /> </td><td>&nbsp;&nbsp; Proposed Areas</td></tr></table>' ;
+                return div;
+                };
+                legend.addTo(mymap);
+                //***** print control ***
+                
+                ctlPrint2 = L.control.browserPrint({position:'topleft'}).addTo(mymap);
+                
+                ctlDraw = new L.Control.Draw({
+                    draw:{
+                        polygon:false,
+                        circle:false,
+                        rectangle:false,
+                    },
+                    edit:{
+                        featureGroup:fgpDrawnItems,
+                        remove:false
+                    }
+                });
+                ctlDraw.addTo(mymap);
+                
+                // ************ Location Events **************
+                
+                mymap.on('locationfound', function(e) {
+                    console.log(e);
+                    if (mrkCurrentLocation) {
+                        mrkCurrentLocation.remove();
+                    }
+                    mrkCurrentLocation = L.circle(e.latlng, {radius:e.accuracy/2}).addTo(mymap);
+                    mymap.setView(e.latlng, 14);
+                });
+                
+                mymap.on('locationerror', function(e) {
+                    console.log(e);
+                    alert("Location was not found");
+                })
+                
+            });
+            
+           
+            
+            $("#lblBilboard").click(function(){
+                $("#divBilboardData").toggle(); 
+            });
+            
+            $("input[name=fltBilboard]").click(function(){
+                arBillboardIDs=[];
+                lyrbilboards.refresh();
+            });
+            
+             
+            //  *********  jQuery Event Handlers  ************
+            
+            $("#btnGBH").click(function(){
+               $("#lgndGBHDetail").toggle(); 
+            });
+            
+            $("#btnLocate").click(function(){
+                mymap.locate();
+            });
+            
+            $("#btnShowLegend").click(function(){
+                $("#legend").toggle();
+            });
+            
+            //  ***********  General Functions *********
+            function LatLngToArrayString(ll) {
+                return "["+ll.lat.toFixed(5)+", "+ll.lng.toFixed(5)+"]";
+            }
+            
+            function returnLayerByAttribute(lyr,att,val) {
+                var arLayers = lyr.getLayers();
+                for (i=0;i<arLayers.length-1;i++) {
+                    var ftrVal = arLayers[i].feature.properties[att];
+                    if (ftrVal==val) {
+                        return arLayers[i];
+                    }
+                }
+                return false;
+            }
+            
+            function testLayerAttribute(ar, val, att, fg, err, btn) {
+                if (ar.indexOf(val)<0) {
+                    $(fg).addClass("has-error");
+                    $(err).html("**** "+att+" NOT FOUND ****");
+                    $(btn).attr("disabled", true);
+                } else {
+                    $(fg).removeClass("has-error");
+                    $(err).html("");
+                    $(btn).attr("disabled", false);
+                }
+            }
+          
+        </script>
+        </section>
+    </body>
+</html>
